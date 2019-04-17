@@ -1,17 +1,36 @@
-Some while ago I wrote a short tutorial about how to create an AIML chatbot and output its text
-via espeak (https://iniy.org/?p=68).
+# AIML and LSA powered chatbot
 
-AFter years I stumbled over this post again and now here is a second part which loads the AI Foundation's A.L.I.C.E.
+This is an a chatbot project powered by powerful open source frameworks and algorithms to stay independent from existing and expensive third-party platforms
+## Features
+
+  ##### The following functionalities are to be considered in this project
+
+  * AIML - Artificial Intelligence Markup Language for Basic conversations
+  * LSA - Latent Semantic Analysis - To answer FAQs
+  * Sentimental Analysis - To understand positivity or negativity of conversations
+  * Analytics and Reporting Packages
+
+
+### Technology
+
+This python server uses uses open source packages to work. The following packages were used:
+
+
+
+## Prerequisites
+
+* [Python] 
+
+## Installation
+
+Express requires no additional dependencies to run and is built to be a standalone desktop application (Windows).
+The default PORT is set to `7000`
+
+##### For Running Dev (Local)
+ Foundation's A.L.I.C.E.
 AIML from http://www.alicebot.org/aiml.html .
 
-To be honest I was a bit surprised about how little and hard to find documentation there is on the
-net to get this simple aiml files to run. There is a bit hard to find google code page:
-https://code.google.com/archive/p/aiml-en-us-foundation-alice/
 
-But the AIML is optimized for the Pandorabots online plattform and I wanted just to play around
-a bit with this stuff locally.
-
-So here is a repository with batteries included:
 
 - Based on aiml-en-us-foundation-alice-1.9 zip file from the AI Foundation google code website
 - removed Pandorabots specific syntax
@@ -27,7 +46,7 @@ Requires python3 (but porting this minimal script to python 2 is very easy)
 
 Then just run
 
-    ./chatbot.py
+    python chatbot.py
     
 ## Where to go from here
 
