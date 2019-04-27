@@ -17,6 +17,8 @@ This python server uses uses open source packages to work. The following package
 
 
 
+
+
 ## Prerequisites
 
 * [Python] 
@@ -42,9 +44,15 @@ AIML from http://www.alicebot.org/aiml.html .
 Requires python3 (but porting this minimal script to python 2 is very easy)
 
 
-    pip3 install python-aiml
+    pip install python-aiml
+    pip install aiml
+    pip install nltk
+    pip install textblob
+    pip install spacy
+    pip install pandas
+    pip install gensim
 
-Then just run
+Then download the stopwords dataset from nltk downloader an the punkt stopwords, just run
 
     python chatbot.py
     
