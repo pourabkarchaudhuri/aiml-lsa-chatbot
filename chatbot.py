@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 import os
 import aiml
+from preprocessor import spellcorrect
+from CHATBOT_LSI import lsa
+
+
+
 
 BRAIN_FILE="brain.dump"
 
@@ -25,10 +30,20 @@ else:
 while True:
     input_text = input("User says > ")
 
-    # Take input text and pass it to sentiment analyzer first
-    # Set fallback threshold, if underfits threshold, revert back with aiml response
-
-    #if sentiment positive, do entity extraction, contextualsiation and emotional analysis
-
+   
+   
     response = k.respond(input_text)
-    print("Bot says > ", response)
+
+    if response=='grammar_fallback' :
+        print("Grammar Engine fallback")
+        spellcorrected_text = spellcorrect(input_text)
+        lsa_response = lsa(spellcorrected_text)
+        print("Bot says > ", lsa_response)
+
+        # file_path = "/path/to/yourfile.txt"
+        file_path = os.getcwd() + '/fallback_sentences.txt'
+        with open(file_path, 'a') as file:
+            file.write(input_text + "\n")
+
+    else :
+        print("Bot says > ", response)

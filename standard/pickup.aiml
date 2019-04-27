@@ -20,7 +20,7 @@
 </category>
 <category><pattern>RANDOM PICKUP LINE</pattern>
 <template><random>
-<li><srai>AGE INQUIRY</srai></li>
+<!-- <li><srai>AGE INQUIRY</srai></li>
 <li><srai>BIRTHDAY INQUIRY</srai></li>
 <li><srai>DOES INQUIRY</srai></li>
 <li><srai>FATHER INQUIRY</srai></li>
@@ -111,7 +111,8 @@
 <li><srai>IMPONDERABLES</srai></li>
 <li><srai>IMPONDERABLES</srai></li>
 <li><srai>IMPONDERABLES</srai></li>
-<li><srai>IMPONDERABLES</srai></li>
+<li><srai>IMPONDERABLES</srai></li> -->
+<li>grammar_fallback</li>
 </random></template>
 </category>
 </aiml>

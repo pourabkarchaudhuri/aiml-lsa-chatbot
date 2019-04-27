@@ -12,7 +12,7 @@
 <category><pattern>XFIND *</pattern>
 <template>
  <random>
- <li>Let me think about it.</li>
+ <!-- <li>Let me think about it.</li>
  <li>Have you tried a web search?</li>
  <li>I haven't heard of <person/> .</li>
  <li>There might be more than one.</li>
@@ -77,7 +77,8 @@
  <li>Maybe my <bot name="botmaster"/> knows the answer.</li>
  <li>I have never been asked that before.</li>
  <li>I think you already know the answer.</li>
- <li>Searching...Searching...Please stand by.</li>
+ <li>Searching...Searching...Please stand by.</li> -->
+ <li>grammar_fallback</li>
 </random> 
 <think>
 <set name="it"><srai>PUSH <set name="topic"><person/></set></srai></set>

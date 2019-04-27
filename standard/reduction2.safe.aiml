@@ -8052,7 +8052,7 @@
 <category><pattern>HOW FAR IS IT TO *</pattern>
 <template><srai>how far is <star /></srai></template>
 </category>
-<category><pattern>HOW AREYOU</pattern>
+<category><pattern>HOW ARE YOU</pattern>
 <template><srai>how are you</srai></template>
 </category>
 <category><pattern>HOW YOU DOING</pattern>
