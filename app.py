@@ -1,7 +1,3 @@
-import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
 from flask import Flask, request, jsonify
 import os
 from werkzeug.utils import secure_filename
@@ -10,10 +6,18 @@ import chatbot
 
 app = Flask(__name__)
 
+@app.route("/")
+def health():
+    return jsonify({
+        "status":"active",
+        "state":"running",
+        "errors":None
+    })
+
 #Example for Root Route
 @app.route('/query', methods=['POST'])
-def post_example():
-    print(request.get_json())
+def lsa():
+    # print(request.get_json())
     if not request.json:
         return jsonify({
             "status": 400,
@@ -34,12 +38,6 @@ def post_example():
                 }        
             }
         })
-        # return jsonify({
-        #     "status": 200,
-        #     "response": response
-        # })
-        # print(request.data.query)
-        # chatbot.run()
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
