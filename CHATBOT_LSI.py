@@ -118,7 +118,7 @@ def lsa(sentence):
     print("Inside LSA Module : ", sentence)
     if(sentence.lower()!='bye'):
         if(greeting(sentence.lower())!=None):
-            # print('Bot says > '+ greeting(sentence.lower()))
+            print('Bot says > '+ greeting(sentence.lower()))
         else:
             reply =[]
             score =[]
