@@ -27,18 +27,19 @@ else:
 
 # Endless loop which passes the input to the bot and prints
 # its response
-while True:
-    input_text = input("User says > ")
+# while True:
+#     input_text = input("User says > ")
 
    
-   
+def get_lsa_response(input_text):
     response = k.respond(input_text)
 
     if response=='grammar_fallback' :
         print("Grammar Engine fallback")
         spellcorrected_text = spellcorrect(input_text)
         lsa_response = lsa(spellcorrected_text)
-        print("Bot says > ", lsa_response)
+        # print("Bot says > ", lsa_response)
+        return lsa_response
 
         # file_path = "/path/to/yourfile.txt"
         file_path = os.getcwd() + '/fallback_sentences.txt'
@@ -46,4 +47,5 @@ while True:
             file.write(input_text + "\n")
 
     else :
-        print("Bot says > ", response)
+        return response
+        # print("Bot says > ", response)
