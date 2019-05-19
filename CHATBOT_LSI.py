@@ -115,15 +115,17 @@ def Talk_To_Alison(test_set_sentence):
 def lsa(sentence):
    
     # sentence = input("User says > ")
-
+    print("Inside LSA Module : ", sentence)
     if(sentence.lower()!='bye'):
         if(greeting(sentence.lower())!=None):
-            print('Bot says > '+ greeting(sentence.lower()))
+            # print('Bot says > '+ greeting(sentence.lower()))
         else:
             reply =[]
             score =[]
             reply, score = Talk_To_Alison(str(sentence))
             # print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+reply)
+            print("Reply from ALICE : ", reply)
+            print("Score from AlICE : ", score)
             return reply
             
             #For Tracing, comment to remove from print 

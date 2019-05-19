@@ -35,11 +35,13 @@ else:
    
 def get_lsa_response(input_text):
     response = k.respond(input_text)
-
+    print("AIML Response : ", response)
     if response=='grammar_fallback' :
-        print("Grammar Engine fallback")
+        # print("Grammar Engine fallback")
         spellcorrected_text = spellcorrect(input_text)
-        lsa_response = lsa(spellcorrected_text)
+        # print("Input Text before LSA : ", spellcorrected_text)
+        lsa_response = lsa(input_text)
+        # print("LSA Response : ", lsa_response)
         # print("Bot says > ", lsa_response)
         return lsa_response
 
@@ -54,7 +56,7 @@ def get_lsa_response(input_text):
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def health():
     return jsonify({
         "status":"active",
@@ -64,7 +66,7 @@ def health():
 
 #Example for Root Route
 @app.route('/query', methods=['POST'])
-def lsa():
+def lsa_processor():
     # print(request.get_json())
     if not request.json:
         return jsonify({
@@ -73,14 +75,15 @@ def lsa():
         })
     else:
         print(request.get_json())
-        response = get_lsa_response(request.get_json()['query'])
+        payload = get_lsa_response(request.get_json()['query'])
+        # print("Respone sending out", payload)
         return jsonify({
             "result" : {
                 "fulfillment":{
                     "messages": [{
                         "type": 0,
                         "platform": "facebook",
-                        "speech": response
+                        "speech": payload
                         }
                     ]
                 }        
