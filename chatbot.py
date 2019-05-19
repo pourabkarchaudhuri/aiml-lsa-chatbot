@@ -4,9 +4,6 @@ import aiml
 from preprocessor import spellcorrect
 from CHATBOT_LSI import lsa
 
-
-
-
 BRAIN_FILE="brain.dump"
 
 k = aiml.Kernel()

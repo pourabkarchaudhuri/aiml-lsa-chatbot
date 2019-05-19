@@ -1,9 +1,9 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 from sklearn.pipeline import Pipeline
-documents = ["Data science machine learning", "Money fun family Kids home", "Programming java data structures", "Love food health games energy fun"] 
+# documents = ["Data science machine learning", "Money fun family Kids home", "Programming java data structures", "Love food health games energy fun"] 
 
-print(documents)
+# print(documents)
 # raw documents to tf-idf matrix: 
 vectorizer = TfidfVectorizer(stop_words='english', 
                              use_idf=True, 

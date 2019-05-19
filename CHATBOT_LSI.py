@@ -16,9 +16,8 @@ warnings.simplefilter('ignore')
 
 print("Loading Data Sources")
 #Load Data Source
-data_path = os.getcwd() + '/legal_help_clean.csv'
+data_path = os.getcwd() + '/dataset.csv'
 print("Data source : " + data_path)
-path = '/home/machine1/SANDY/text_mining/CHATBOT/2_LSI/'
 data = pd.read_csv(data_path)
 data.head()
 
