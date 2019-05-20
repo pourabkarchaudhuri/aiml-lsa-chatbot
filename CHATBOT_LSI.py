@@ -114,36 +114,36 @@ def Talk_To_Tau(test_set_sentence):
                 # not_understood = "Apology, I do not understand. Can you rephrase?"
                 # return not_understood, 999
                 if (r_index < len(question_data) - 3):
-                    return { 
-                        "result" : {
+                    return { "result" : {
+
                             "fulfillment":{
-                                "speech": "Apology, I do not understand. Can you rephrase?",
+                                "speech": "",
                                 "displayText": "",
                                 "messages": [{
-                                    "type": 1,
+                                    "type": 4,
                                     "platform": "facebook",
-                                    "title": "",
-                                    "subtitle": "",
-                                    "imageUrl": "https://smb.optus.com.au/opfiles/Shop/Consumer/Assets/Images/Broadband/broadband-NBN-landing-page-3UP.png",
-                                    "buttons": [{
-                                        "text": question_data[r_index],
-                                        "postback": question_data[r_index]
-
-                                        },
-                                        {
-                                        "text": question_data[r_index + 1],
-                                        "postback": question_data[r_index + 1]
-                                        },
-                                        {
-                                        "text": question_data[r_index + 2],
-                                        "postback": question_data[r_index + 2]
-
+                                    "payload": {
+                                        "facebook": {
+                                            "text": "Do you want to buy",
+                                            "quick_replies": [{
+                                                    "content_type": "text",
+                                                    "title": question_data[r_index],
+                                                    "payload": question_data[r_index]
+                                                }, {
+                                                    "content_type": "text",
+                                                    "title": question_data[r_index + 1],
+                                                    "payload": question_data[r_index + 1]
+                                                },
+                                                {
+                                                    "content_type": "text",
+                                                    "title": question_data[r_index + 2],
+                                                    "payload": question_data[r_index + 2]
+                                                }]
                                         }
-                                    ]
+                                    }
                                 }]
                             }
                         }
-
                     }, 999
                 else:
                     not_understood = "Apology, I do not understand. Can you rephrase?"
@@ -178,7 +178,7 @@ def lsa(sentence):
             print("Score from AlICE : ", score)
             return reply
             
-            #For Tracing, comment to remove from print 
+            #For Tracing, comment to remove from print
             #print("")
             #print("SCORE: "+str(score))
     # else:

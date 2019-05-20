@@ -77,18 +77,22 @@ def lsa_processor():
         print(request.get_json())
         payload = get_lsa_response(request.get_json()['query'])
         # print("Respone sending out", payload)
-        return jsonify({
-            "result" : {
-                "fulfillment":{
-                    "messages": [{
-                        "type": 0,
-                        "platform": "facebook",
-                        "speech": payload
-                        }
-                    ]
-                }        
-            }
-        })
+        print(type(payload))
+        if (type(payload) == str):
+            return jsonify({
+                "result" : {
+                    "fulfillment":{
+                        "messages": [{
+                            "type": 0,
+                            "platform": "facebook",
+                            "speech": payload
+                            }
+                        ]
+                    }        
+                }
+            })
+        else:
+            return jsonify(payload)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
