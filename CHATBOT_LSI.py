@@ -21,6 +21,8 @@ print("Data source : " + data_path)
 data = pd.read_csv(data_path)
 data.head()
 
+temp_data = pd.read_csv(data_path)
+question_data = temp_data['MESSAGE']
 #Create Stop Word
 newstopwords = set(stopwords.words('english'))
 #define Wordnet Lemmatizer 
@@ -48,6 +50,7 @@ def greeting(sentence):
 
 
 #Preprocess Question Column
+# question_data = data['MESSAGE']
 data['MESSAGE'] = data['MESSAGE'].apply(pre_process)
     
 #Define Questions
@@ -67,7 +70,7 @@ index = similarities.MatrixSimilarity(corpus_lsi)
 # ChatBot Function Definition
 
 
-def Talk_To_Alison(test_set_sentence):        
+def Talk_To_Tau(test_set_sentence):        
     # ---------------Tokenisation of user input -----------------------------#
     tokens = pre_process(test_set_sentence)
     texts = " ".join(tokens)    
@@ -94,25 +97,72 @@ def Talk_To_Alison(test_set_sentence):
         for i in range(len(sims)):
             x = sims[i][1]
             # If similarity is less than 0.5 ask user to rephrase.
-            if x <=0.5: # Threshold B
-                not_understood = "Apology, I do not understand. Can you rephrase?"
-                return not_understood, 999  
+            if x <=0.7: # Threshold B
+                index_s.append(str(sims[i][0]))
+                score_s.append(str(sims[i][1]))
+                reply_indexes = pd.DataFrame({'index': index_s,'score': score_s})
+
+                r_index = int(reply_indexes['index'].loc[0])
+                r_score = float(reply_indexes['score'].loc[0])
+                # print("$$$$$$$$$")
+                # print(len(question_data))
+                # print(question_data[r_index])
+                # print(str(data.iloc[:,1][r_index]))
+                # print(r_index == 116)
+                # print("$$$$$$$$$")
+
+                # not_understood = "Apology, I do not understand. Can you rephrase?"
+                # return not_understood, 999
+                if (r_index < len(question_data) - 3):
+                    return { 
+                        "result" : {
+                            "fulfillment":{
+                                "speech": "Apology, I do not understand. Can you rephrase?",
+                                "displayText": "",
+                                "messages": [{
+                                    "type": 1,
+                                    "platform": "facebook",
+                                    "title": "",
+                                    "subtitle": "",
+                                    "imageUrl": "https://smb.optus.com.au/opfiles/Shop/Consumer/Assets/Images/Broadband/broadband-NBN-landing-page-3UP.png",
+                                    "buttons": [{
+                                        "text": question_data[r_index],
+                                        "postback": question_data[r_index]
+
+                                        },
+                                        {
+                                        "text": question_data[r_index + 1],
+                                        "postback": question_data[r_index + 1]
+                                        },
+                                        {
+                                        "text": question_data[r_index + 2],
+                                        "postback": question_data[r_index + 2]
+
+                                        }
+                                    ]
+                                }]
+                            }
+                        }
+
+                    }, 999
+                else:
+                    not_understood = "Apology, I do not understand. Can you rephrase?"
+                    return not_understood, 999
             else: 
                 index_s.append(str(sims[i][0]))
                 score_s.append(str(sims[i][1]))
                 reply_indexes = pd.DataFrame({'index': index_s,'score': score_s})
         
 
-            #Find Top Questions and Score      
+            #Find Top Questions and Score  
             r_index = int(reply_indexes['index'].loc[0])
             r_score = float(reply_indexes['score'].loc[0])
-
             reply = str(data.iloc[:,1][r_index])
         
             return reply, r_score
 
 
-def lsa(sentence):
+def lsa(sentence): 
    
     # sentence = input("User says > ")
     print("Inside LSA Module : ", sentence)
@@ -122,7 +172,7 @@ def lsa(sentence):
         else:
             reply =[]
             score =[]
-            reply, score = Talk_To_Alison(str(sentence))
+            reply, score = Talk_To_Tau(str(sentence))
             # print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+reply)
             print("Reply from ALICE : ", reply)
             print("Score from AlICE : ", score)
