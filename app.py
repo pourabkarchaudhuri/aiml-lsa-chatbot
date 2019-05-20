@@ -40,7 +40,7 @@ def get_lsa_response(input_text):
         # print("Grammar Engine fallback")
         spellcorrected_text = spellcorrect(input_text)
         # print("Input Text before LSA : ", spellcorrected_text)
-        lsa_response = lsa(input_text)
+        lsa_response = lsa(spellcorrected_text)
         # print("LSA Response : ", lsa_response)
         # print("Bot says > ", lsa_response)
         return lsa_response

@@ -1,4 +1,3 @@
-print("Getting ready!")
 import pandas as pd
 import os
 import random
@@ -104,12 +103,6 @@ def Talk_To_Tau(test_set_sentence):
 
                 r_index = int(reply_indexes['index'].loc[0])
                 r_score = float(reply_indexes['score'].loc[0])
-                # print("$$$$$$$$$")
-                # print(len(question_data))
-                # print(question_data[r_index])
-                # print(str(data.iloc[:,1][r_index]))
-                # print(r_index == 116)
-                # print("$$$$$$$$$")
 
                 # not_understood = "Apology, I do not understand. Can you rephrase?"
                 # return not_understood, 999
@@ -124,7 +117,7 @@ def Talk_To_Tau(test_set_sentence):
                                     "platform": "facebook",
                                     "payload": {
                                         "facebook": {
-                                            "text": "Do you want to buy",
+                                            "text": "Apologies, can you be a little more specific? Here are some relevant questions that you might be asking about",
                                             "quick_replies": [{
                                                     "content_type": "text",
                                                     "title": question_data[r_index],
@@ -165,7 +158,6 @@ def Talk_To_Tau(test_set_sentence):
 def lsa(sentence): 
    
     # sentence = input("User says > ")
-    print("Inside LSA Module : ", sentence)
     if(sentence.lower()!='bye'):
         if(greeting(sentence.lower())!=None):
             print('Bot says > '+ greeting(sentence.lower()))
@@ -173,15 +165,11 @@ def lsa(sentence):
             reply =[]
             score =[]
             reply, score = Talk_To_Tau(str(sentence))
-            # print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+reply)
-            print("Reply from ALICE : ", reply)
-            print("Score from AlICE : ", score)
+
+            # print("Score from AlICE : ", score)
             return reply
             
             #For Tracing, comment to remove from print
             #print("")
             #print("SCORE: "+str(score))
-    # else:
-    #     flag=False
-# print('\x1b[1;37;40m' + 'JARVIS'+'\x1b[0m'+': '+"Bye! Hope that i am of help.") 
 

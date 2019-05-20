@@ -35,7 +35,7 @@ while True:
     response = k.respond(input_text)
 
     if response=='grammar_fallback' :
-        print("Grammar Engine fallback")
+        print("Grammar Engine Incapable > Switch to LSA")
         spellcorrected_text = spellcorrect(input_text)
         lsa_response = lsa(spellcorrected_text)
         print("Bot says > ", lsa_response)

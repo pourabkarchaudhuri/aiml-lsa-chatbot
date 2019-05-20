@@ -1,32 +1,3 @@
-Yiiieeeee
-whats up
-whats up
-do how to adopt
-oaky sure
-isnt it groovy
-#!/usr/bin/python3
-import os
-import aiml
-from preprocessor import spellcorrect
-from CHATBOT_LSI import lsa
-# To increase the startup speed of the bot it is
-# possible to save the parsed aiml files as a
-# otherwise loads the aiml from the xml files
-# and saves the brain dump.
-    print("Loading from brain file: " + BRAIN_FILE)
-else:
-    print("Parsing aiml files")
-    print("Saving brain file: " + BRAIN_FILE)
-# Endless loop which passes the input to the bot and prints
-while True:
-    input_text = input("User says > ")
-    if response=='grammar_fallback' :
-        print("Grammar Engine fallback")
-        spellcorrected_text = spellcorrect(input_text)
-        lsa_response = lsa(spellcorrected_text)
-Uhm, is there a program of graduates?
-uhm
-Uhm
-Uhm, is there something for graduates?
-uhm
-uhm
+curve loss fo investment best price for sell in a good buy?
+curve loss fo investment best price for sell in a good buy?
+are there any internships?
