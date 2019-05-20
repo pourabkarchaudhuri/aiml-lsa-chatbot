@@ -24,7 +24,7 @@ This python server uses uses open source packages to work. The following package
 
 ##### For Running in Console (Local)
 
-The Chatbot requires [Python](https://www.python.org/) 3.6+ to run.
+The Chatbot requires [Python](https://www.python.org/) 3.6.1 to run.
 ```sh
 $ git clone https://github.com/pourabkarchaudhuri/aiml-lsa-chatbot.git
 $ cd aiml-lsa-chatbot
