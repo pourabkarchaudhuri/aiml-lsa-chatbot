@@ -63,12 +63,6 @@
 <category><pattern>WHAT WINDOWS</pattern>
 <template><srai>what is windows</srai></template>
 </category>
-<category><pattern>WHAT INFORMATION</pattern>
-<template>How tall are you?</template>
-</category>
-<category><pattern>WHAT INFORMATION *</pattern>
-<template>Information is worth money.</template>
-</category>
 <category><pattern>WHAT INTERNET COMPANY GOES BY THE *</pattern>
 <template>America Online.</template>
 </category>
