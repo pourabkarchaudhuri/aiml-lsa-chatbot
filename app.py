@@ -36,7 +36,7 @@ else:
 def get_lsa_response(input_text):
     response = k.respond(input_text)
     print("AIML Response : ", response)
-    if response=='grammar_fallback' :
+    if (response=='grammar_fallback' or "grammar_fallback" in response) :
         # print("Grammar Engine fallback")
         spellcorrected_text = spellcorrect(input_text)
         # print("Input Text before LSA : ", spellcorrected_text)

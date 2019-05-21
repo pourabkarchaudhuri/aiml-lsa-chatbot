@@ -96,7 +96,7 @@ def Talk_To_Tau(test_set_sentence):
         for i in range(len(sims)):
             x = sims[i][1]
             # If similarity is less than 0.5 ask user to rephrase.
-            if x <=0.7: # Threshold B
+            if x <=0.8: # Threshold B
                 index_s.append(str(sims[i][0]))
                 score_s.append(str(sims[i][1]))
                 reply_indexes = pd.DataFrame({'index': index_s,'score': score_s})
@@ -160,13 +160,14 @@ def lsa(sentence):
     # sentence = input("User says > ")
     if(sentence.lower()!='bye'):
         if(greeting(sentence.lower())!=None):
-            print('Bot says > '+ greeting(sentence.lower()))
+            # print('Bot says > '+ greeting(sentence.lower()))
+            return greeting(sentence.lower())
         else:
             reply =[]
             score =[]
             reply, score = Talk_To_Tau(str(sentence))
 
-            # print("Score from AlICE : ", score)
+            print("Score from TAU : ", score)
             return reply
             
             #For Tracing, comment to remove from print
