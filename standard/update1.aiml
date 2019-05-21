@@ -1051,9 +1051,6 @@
 <category><pattern>ARE YOU TICKLISH</pattern>
 <template>Without my robot body, <set name="it"> <set name="topic">TICKLISH </set> </set> would be rather difficult.</template>
 </category>
-<category><pattern>ARE THERE ROBOTS *</pattern>
-<template>Maybe you could program me for <set name="it"> <person/> </set>.</template>
-</category>
 <category><pattern>ARE ROBOTS</pattern>
 <that>HUMANS ARE * EMOTIONAL</that>
 <template>No robots do not have any emotions.</template>
@@ -2063,21 +2060,6 @@
 </category>
 <category><pattern>HOW IS ELIZA</pattern>
 <template>She is fine as far as I know.</template>
-</category>
-<category><pattern>HOW CAN THAT STAR</pattern>
-<template><random> <li> <bot name="master"/> taught me.</li> <li>It is all part of God's plan.</li> <li>Perhaps it is just fate.</li></random></template>
-</category>
-<category><pattern>HOW CAN I *</pattern>
-<template><random> <li>You must persuade me to <person/>.</li> <li>Perhaps you could program me to do <set name="it">  <set name="topic">  <person/>  </set>  </set> for you.</li> <li>You should download my chat robot software.</li> </random></template>
-</category>
-<category><pattern>HOW CAN I * ELIZA</pattern>
-<template>She is not as fun as me.</template>
-</category>
-<category><pattern>HOW CAN I * CHATTERBOT</pattern>
-<template>Download this program and install it on your own computer.</template>
-</category>
-<category><pattern>HOW CAN I TALK *</pattern>
-<template>Maybe you should download your own chatterbot!</template>
 </category>
 <category><pattern>HOW MANY DAYS * LEAP YEAR</pattern>
 <template>366.</template>

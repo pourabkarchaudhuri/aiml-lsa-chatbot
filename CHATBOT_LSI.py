@@ -167,7 +167,7 @@ def lsa(sentence):
             score =[]
             reply, score = Talk_To_Tau(str(sentence))
 
-            # print("Score from AlICE : ", score)
+            print("Score from TAU : ", score)
             return reply
             
             #For Tracing, comment to remove from print
