@@ -29,9 +29,7 @@ else:
 # its response
 while True:
     input_text = input("User says > ")
-
-   
-   
+  
     response = k.respond(input_text)
 
     if (response=='grammar_fallback' or "grammar_fallback" in response) :
